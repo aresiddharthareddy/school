@@ -1,0 +1,97 @@
+1. What is Django?
+Django is a Python web framework that helps you build websites quickly and efficiently. 
+It handles tasks like managing databases, templates, and routing.
+
+
+
+2. Why Use Django?
+Django simplifies web development with pre-built tools, security features, and a clean structure. 
+It lets you focus on building features instead of reinventing the wheel.
+
+
+
+3. What is a Virtual Environment?
+A virtual environment is an isolated space where you can install Python packages specific to a project. 
+It prevents conflicts between different projects.
+
+
+
+4. What is a Workspace?
+A workspace is the folder or area where you organize and work on your project files and code. 
+It contains your project’s code, virtual environment, and dependencies.
+
+
+
+5. What is a Project?
+A project is the main container in Django, holding all settings, configurations, and apps for your website. 
+It’s like the "blueprint" of your web application.
+
+
+
+6. What is an App?
+An app is a smaller component within a Django project, focused on a specific feature (e.g., user profiles, blogs). 
+A project can have multiple apps.
+
+
+
+7. What is MVT? Explain M, V, T.
+MVT stands for Model-View-Template, the design pattern Django follows for building web applications.
+
+Model: Manages data and handles database interactions (e.g., saving or retrieving records).
+View: Contains the logic to process user requests and pass data to templates.
+Template: Defines the structure and layout of the web page using HTML, with placeholders for dynamic data.
+This pattern separates concerns, making the application easier to manage and scale.
+
+
+
+8. What is an Application? Difference Between Application and Web Application?
+An application is a program that performs specific tasks. 
+A web application is an app that runs on the internet and uses a browser as its interface.
+
+
+
+9. How Does Flow Work in Django?
+The user sends a request to the server (e.g., by entering a URL).
+Django’s urls.py maps the requested URL to a specific view function.
+The view function processes the request, interacts with the Model (if needed), and prepares data.
+The view sends the data to a Template, which generates an HTML page for the user.
+Django sends the HTML as a response to the browser, which renders it for the user.
+
+
+
+10. Why Use manage.py?
+manage.py helps you run commands like starting the server, applying database migrations, or creating superusers. 
+It’s the control center for your project.
+
+
+
+11. How Does Any Application Work?
+An application processes user requests, interacts with data, and sends back a result or response to the user.
+
+
+
+12. What is a Request?
+A request is what the user sends to the server, asking for a webpage, data, or to perform an action.
+
+
+
+13. What is a Response?
+A response is what the server sends back to the user, such as an HTML page, data, or an error message.
+
+
+
+14. Everything About How Applications/Web Applications Work?
+Request: A user interacts with a web app by sending a request (e.g., visiting a URL or submitting a form).
+Routing: The server maps the request to specific code (e.g., a function in Django’s views.py).
+Processing: The server’s backend logic processes the request, interacting with the database (via Models) to retrieve or modify data.
+Template Rendering: The backend passes the processed data to a template, which formats it into an HTML page.
+Response: The server sends the generated HTML (or other data like JSON) back to the user's browser.
+User View: The browser displays the result to the user, completing the cycle.
+
+
+
+Project:
+Online School System:
+This Django project entails the creation of an online school system that teachers can use to set student assignments.
+Students can also use this online portal to submit assignments and view the results.
+In this project, you’ll also need to create Django’s REST framework to create API’s.

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">  
+<body>
+    {% if request.session.role == "superuser" %}
+    <a href="{% url 'teacher_create' %}"><button>Add New teacher</button></a>
+    {% endif %}
+    <h2>Teachers</h2>
+    <ul>
+        {% for teacher in teachers %}
+            <li>
+                {{ teacher.name }} - {{ teacher.subject }}
+                {% if request.session.role == "superuser" or request.session.teacher_id == teacher.id %}
+                <div>{{request.session.role}}</div>
+                    <a href="{% url 'teacher_update' teacher.id %}">Edit</a>
+                    <a href="{% url 'teacher_delete' teacher.id %}">Delete</a>
+                    {% comment %} <a href="{% url 'teacher_assignment' teacher.id %}">Assignment</a> {% endcomment %}
+                {% endif %}
+            </li>
+        {% empty %}
+            <li>No teachers found.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'assignment_list' %}?role=teacher"><button>Assignment_list</button></a>
+    <a href="{% url 'scores_list' %}?role=teacher"><button>Scores</button></a>
+    <a href="{% url 'student_list' %}"><button>students</button></a>
+    <h2>Logout</h2>
+    <form method="POST" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+</body>
+</html>
