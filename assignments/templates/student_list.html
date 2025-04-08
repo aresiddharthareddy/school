@@ -25,7 +25,7 @@
                 <td>{{ student.email }}</td>
                 <td>
                     {% comment %} <div>{{ request.user.student.id }}</div> {% endcomment %}
-                    {% if request.session.role == "superuser" or request.session.student_id == student.id %}
+                    {% if request.session.role == "admin" or request.session.student_id == student.id %}
                     <a href="{% url 'student_update' student.id %}">Edit</a> 
                         <a href="{% url 'student_delete' student.id %}">Delete</a>
                         <a href="{% url 'student_sub' student.id %}">Add Subject</a>

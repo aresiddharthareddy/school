@@ -9,7 +9,7 @@
         {% for teacher in teachers %}
             <li>
                 {{ teacher.name }} - {{ teacher.subject }}
-                {% if request.session.role == "superuser" or request.session.teacher_id == teacher.id %}
+                {% if request.session.role == "admin" or request.session.teacher_id == teacher.id %}
                 <div>{{request.session.role}}</div>
                     <a href="{% url 'teacher_update' teacher.id %}">Edit</a>
                     <a href="{% url 'teacher_delete' teacher.id %}">Delete</a>

@@ -8,6 +8,7 @@ from django.contrib.auth.hashers import check_password
 from django.core.exceptions import ObjectDoesNotExist, ValidationError
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404,Http404
+from rest_framework.decorators import api_view
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required, user_passes_test
 
@@ -20,9 +21,10 @@ def login_user(request):
     if request.method == "POST":
         name = request.POST.get("username")
         password = request.POST.get("password")
-        role = request.POST.get("role")  # Get role (admin, teacher, student)
+        role = request.POST.get("role") 
 
-        if role == "admin":  # Superuser authentication
+        if role == "admin": 
+            # import pdb;pdb.set_trace()
             user = authenticate(request, username=name, password=password)
             if user is not None and user.is_superuser:
                 request.session["user_id"] = user.id
@@ -71,8 +73,9 @@ def login_user(request):
 
     return render(request, "login.html")  
 
-@login_required
-@user_passes_test(is_superuser)
+@api_view(['GET', ])
+# @login_required
+# @user_passes_test(is_superuser)
 def admin_dashboard(request):
     return render(request, "admin_dashboard.html")
 
@@ -89,7 +92,9 @@ def logout_student(request):
     return redirect("login")
 
 
-
+class Admin_dashboardView(View):
+    def get(self, request):
+        return render(request, "admin_dashboard.html")
 
 # ------------------ Teacher Views ------------------
 class TeacherListView(View):

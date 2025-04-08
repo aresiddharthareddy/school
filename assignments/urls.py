@@ -2,7 +2,7 @@ from django.urls import path
 from .views import (
     TeacherListView, TeacherCreateView, TeacherUpdateView, TeacherDeleteView,
     StudentListView, StudentCreateView, StudentUpdateView, StudentDeleteView, AssignmentListView, AssignmentCreateView, AssignmentUpdateView, AssignmentDeleteView, AssignmentSubmitView,AssignmentFileView, ScoreFileView,
-    ScoresListView, ScoresCreateView, ScoresUpdateView, ScoresDeleteView, login_user, logout_user, admin_dashboard,  logout_teacher, logout_student, StudentSubjectView, ScoresAddView
+    ScoresListView, ScoresCreateView, ScoresUpdateView, ScoresDeleteView, login_user, logout_user, admin_dashboard,  logout_teacher, logout_student, StudentSubjectView, ScoresAddView, Admin_dashboardView
 )
 
 urlpatterns = [
