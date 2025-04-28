@@ -4,43 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    {% comment %} {% load static %} {% endcomment %}
+    <link rel="stylesheet" href="../static/login.css">
 </head>
 <body>
+    <main><div>
+        <h2>Login</h2>
 
-    <h2>Login</h2>
+        {% if messages %}
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        {% endif %}
 
-    {% if messages %}
-        {% for message in messages %}
-            <p>{{ message }}</p>
-        {% endfor %}
-    {% endif %}
+        <form method="POST">
+            {% csrf_token %}
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username" required>
+            <br><br>
 
-    <form method="POST">
-        {% csrf_token %}
-        <label for="username">Username:</label>
-        <input type="text" name="username" id="username" required>
-        <br><br>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" required>
+            <br><br>
 
-        <label for="password">Password:</label>
-        <input type="password" name="password" id="password" required>
-        <br><br>
+            <label for="role">Login as:</label>
+            <select name="role">
+                <option value="admin">Superuser (Admin)</option>
+                <option value="teacher">Teacher</option>
+                <option value="student">Student</option>
+            </select>
+            <br><br>
 
-        <label for="role">Login as:</label>
-        <select name="role">
-            <option value="admin">Superuser (Admin)</option>
-            <option value="teacher">Teacher</option>
-            <option value="student">Student</option>
-        </select>
-        <br><br>
-
-        <button type="submit">Login</button>
-    </form>
-
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    </main>
 </body>
 </html>
 
 
-
-{% comment %} made changes in the views in school management system project as per the flow and also updated the URL paths of the project. {% endcomment %}
-{% comment %} updated the role based access in school management system project, made different access permissions for students, teachers and admin. {% endcomment %}
-{% comment %} updated the assignments views and scores views and added the read functionality for every assignment submitted by either teacher or student in school management system project. {% endcomment %}
