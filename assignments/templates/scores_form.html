@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        {% if form.instance.pk %}Edit Scores{% else %}Add Scores{% endif %}
+    </title>
+</head>
+<body>
+    <h2>{% if form.instance.pk %}Edit Scores{% else %}Add Scores{% endif %}</h2>
+    
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+
+    <a href="{% url 'scores_list' %}">Back to List</a>
+</body>
+</html>

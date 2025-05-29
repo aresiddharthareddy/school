@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment Form</title>
+</head>
+<body>
+    <h2>{% if form.instance.id %}Edit{% else %}Add{% endif %} Assignment</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+    <a href="{% url 'assignment_list' %}">Back to Assignments</a>
+</body>
+</html>

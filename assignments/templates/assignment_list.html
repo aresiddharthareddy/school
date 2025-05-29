@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head> Assignments </head>
+    <body>
+        {% if role == "teacher" %}
+        <a href="{% url 'assignment_add' %}"><button>Add New assignment</button></a>
+        {% endif %}
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Teacher_name</th>
+                    <th>Assignment_name</th>
+                    <th>Assignment_Questions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for assignment in assignments %}
+                <tr>
+                    <td>{{ assignment.id }}</td>
+                    <td>{{ assignment.teacher.name }}</td>
+                    <td>{{ assignment.assignment_name }}</td>
+                    <td><a href="{% url 'assignment_file' pk=assignment.id %}" target="_blank">Download</a></td>
+                </tr>
+                {% endfor %}
+                
+            </tbody>
+        </table>
+        {% if request.session.role == "student" %}
+        <a href="{% url 'student_list' %}">Back to student list</a>
+        {% endif %}
+        {% if request.session.role == "teacher" %}
+        <a href="{% url 'teacher_list' %}">Back to teacher list</a>
+        {% endif %}
+        {% comment %} {% if role == "teacher" %}
+        <a href="{% url 'assignment_add' %}"><button>Add New assignment</button></a>
+        {% endif %} {% endcomment %}
+    </body>
+</html>
