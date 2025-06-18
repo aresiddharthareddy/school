@@ -1,0 +1,40 @@
+main{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* border:100px solid rgb(126, 196, 236) ; */
+    background-color: rgba(138, 138, 138, 0.507);
+}
+/* h2{
+    color: black;
+} */
+input{
+    padding: -5px 5px;
+    border: none;
+    border-radius: 5px;
+}
+select{
+    padding: -5px 5px;
+    border: none;
+    border-radius: 5px;
+}
+option{
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+}
+
+div{
+    /* background-color: #aeafb1; */
+    background-color: rgb(208, 219, 219);
+    padding: 20px;
+    border-radius: 25px;
+}
+button{
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    padding: 5px 15px;
+    border: none;
+    border-radius: 10px;
+}

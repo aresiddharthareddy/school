@@ -2,11 +2,15 @@
 <html>
     <head>
         <title> Student Scores </title>
+        <link rel="stylesheet" href="../static/scores_list.css">
     </head>
     <body>
+        <main>
+            <div>
         {% comment %} {% if request.user.teacher == teacher %}
         <a href= "{% url 'scoresadd_add' %}"><button>Add Scores</button></a>
         {% endif %}  {% endcomment %}
+        <div class="table-container">
         <table border="1">
             <thead>
                 <tr>
@@ -29,7 +33,7 @@
                     <td>{{ score.student}}</td>
                     <td>{{ score.file_upload }}</td>
                     <td>{{ score.scores }}</td>
-                    <td><a href="{% url 'score_file' pk=score.id %}" target="_blank">Open</a></td>
+                    <td><a href="{% url 'score_file' pk=score.id %}" target="">Open</a></td>
                         {% if role == "teacher" %}
                         <td><a href="{% url 'scores_update' id=score.id %}">Edit</a></td>
                         {% endif %}
@@ -37,14 +41,22 @@
                     {% comment %} {% endif %} {% endcomment %}
                 {% endfor %}
             </tbody>
-        </table>
+        </table></div>
+        {% if request.session.role == "student" %}
+        <a href="{% url 'student_list' %}">Back to student list</a>
+        {% endif %}
+        {% if request.session.role == "teacher" %}
+        <a href="{% url 'teacher_list' %}">Back to teacher list</a>
+        {% endif %}
         {% comment %} {% if request.user.teacher %}
         <a href= "{% url 'scoresadd_add' %}"><button>Add Scores</button></a>
         {% endif %} {% endcomment %}
         {% if role == "student" %}
-            <a href= "{% url 'scores_add' %}"><button>add student assignment</button></a>
+            <a href= "{% url 'scores_add' %}" class="link-container"><button>add student assignment</button></a>
         {% endif %}
-    </body>
+    </div>
+</main>
+</body>
 </html>
 
 
@@ -52,8 +64,3 @@
 
 
 
-{% comment %} Gone through and learned about the sessions and cookies and there working once again for better understanding and learned how to implement the sessions in the school management system project without disturbing the flow. {% endcomment %}
-{% comment %} Updated the assignments views and scores views and added the functionality to show the assignments which are submitted by only the teacher who logged in at the time rather than showing every assignment in school management system project and handled the errors. {% endcomment %}
-{% comment %} Once changed the login to session based login then i changed the role based access using query Parrams to the session based request.session.get() for the better accessing in the views and templates and handled the errors. {% endcomment %}
-{% comment %} Updated the login page and used the sessions for better login and logout results in the school management systems, while changing it to sessions got some errors and handled the errors. {% endcomment %}
-{% comment %} Updated every template to have a back to previous page on the bottom of the table for better functionality and used the request.session to return back to the desired page accurately. {% endcomment %}

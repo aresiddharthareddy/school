@@ -1,31 +1,36 @@
 <!DOCTYPE html>
 <html>
-    <head> Assignments </head>
+    <head>
+         <title>Assignments</title>
+        <link rel="stylesheet" href="../static/assignment_list.css">
+    </head>
     <body>
+        <main><div>
         {% if role == "teacher" %}
         <a href="{% url 'assignment_add' %}"><button>Add New assignment</button></a>
         {% endif %}
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Teacher_name</th>
-                    <th>Assignment_name</th>
-                    <th>Assignment_Questions</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for assignment in assignments %}
-                <tr>
-                    <td>{{ assignment.id }}</td>
-                    <td>{{ assignment.teacher.name }}</td>
-                    <td>{{ assignment.assignment_name }}</td>
-                    <td><a href="{% url 'assignment_file' pk=assignment.id %}" target="_blank">Download</a></td>
-                </tr>
-                {% endfor %}
-                
-            </tbody>
-        </table>
+        <div class="table-container">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Teacher_name</th>
+                        <th>Assignment_name</th>
+                        <th>Assignment_Questions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for assignment in assignments %}
+                    <tr>
+                        <td>{{ assignment.id }}</td>
+                        <td>{{ assignment.teacher.name }}</td>
+                        <td>{{ assignment.assignment_name }}</td>
+                        <td><a href="{% url 'assignment_file' pk=assignment.id %}" target="">Open</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
         {% if request.session.role == "student" %}
         <a href="{% url 'student_list' %}">Back to student list</a>
         {% endif %}
@@ -35,5 +40,7 @@
         {% comment %} {% if role == "teacher" %}
         <a href="{% url 'assignment_add' %}"><button>Add New assignment</button></a>
         {% endif %} {% endcomment %}
+    </div>
+    </main>
     </body>
 </html>

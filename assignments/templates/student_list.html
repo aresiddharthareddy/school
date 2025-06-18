@@ -2,12 +2,16 @@
 <html>
 <head>
     <title>Student List</title>
+    <link rel="stylesheet" href="../static/student_list.css">
 </head>
 <body>
+    <header>
     <h2>Student List</h2>
-    {% if request.user.is_superuser %}
+    {% if request.session.role == "admin" %}
     <a href="{% url 'student_add' %}"><button>Add New Student</button></a>
     {% endif %}
+    </header>
+    <main><div>
     <table border="1">
         <thead>
             <tr>
@@ -43,12 +47,14 @@
     <a href="{% url 'assignment_list' %}?role=student"><button>Assignment_list</button></a>
     <a href="{% url 'scores_list' %}?role=student"><button>Scores</button></a>
     {% endif %}
-    <h2>Logout</h2>
+</div>
+</main>
+    <footer>
     <form method="POST" action="{% url 'logout' %}">
         {% csrf_token %}
         <button type="submit">Logout</button>
     </form>
-    
+</footer>
 </body>
 </html>
 

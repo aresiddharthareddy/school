@@ -3,6 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>{% if form.instance.pk %}Edit Student{% else %}Add Student{% endif %}</title>
+    <style>
+        body {
+        text-align:center; 
+        display:flex; 
+        flex-direction: column;
+        align-items:center; 
+        justify-content: center;
+        height: 100vh;
+        background-color:rgb(172, 162, 162)}
+        a{
+            display:inline-block;
+            margin-top: 35px;
+        }
+        h2{
+            background-color:black;
+            color:white;
+            padding:8px;
+            border-radius:15px;
+        }
+    </style>
 </head>
 <body>
     <h2>{% if form.instance.pk %}Edit Student{% else %}Add Student{% endif %}</h2>

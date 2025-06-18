@@ -7,7 +7,7 @@ from .views import (
 
 urlpatterns = [
     #login URLs
-    path("login/", login_user, name="login"),
+    path("", login_user, name="login"),
     path("logout/", logout_user, name="logout"),
     path("admin_dashboard/", admin_dashboard, name="admin_dashboard"),
     path("logout/teacher/", logout_teacher, name="logout_teacher"),
