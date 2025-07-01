@@ -1,40 +1,123 @@
-main{
-    text-align: center;
+/* Reset & Font */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Background with gradient and shape */
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1f1c2c, #928dab);
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    /* border:100px solid rgb(126, 196, 236) ; */
-    background-color: rgba(138, 138, 138, 0.507);
-}
-/* h2{
-    color: black;
-} */
-input{
-    padding: -5px 5px;
-    border: none;
-    border-radius: 5px;
-}
-select{
-    padding: -5px 5px;
-    border: none;
-    border-radius: 5px;
-}
-option{
-    background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
+    position: relative;
+    overflow: hidden;
 }
 
-div{
-    /* background-color: #aeafb1; */
-    background-color: rgb(208, 219, 219);
-    padding: 20px;
-    border-radius: 25px;
+/* Decorative bubbles */
+body::before,
+body::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    z-index: 1;
 }
-button{
-    background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
-    padding: 5px 15px;
+body::before {
+    width: 600px;
+    height: 600px;
+    background: rgba(255, 255, 255, 0.05);
+    top: -100px;
+    left: -150px;
+}
+body::after {
+    width: 500px;
+    height: 500px;
+    background: rgba(255, 255, 255, 0.05);
+    bottom: -100px;
+    right: -100px;
+}
+
+/* Container */
+main {
+    position: relative;
+    z-index: 2;
+    backdrop-filter: blur(25px);
+    background-color: rgba(255, 255, 255, 0.08);
+    padding: 50px 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Headings */
+h1, h2 {
+    margin-bottom: 25px;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* Inputs and selects */
+input,
+select {
+    width: 100%;
+    padding: 12px 18px;
+    margin: 10px 0 20px;
+    border-radius: 10px;
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 1rem;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+input::placeholder,
+select {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 5px #a29bfe;
+}
+
+/* Button */
+button {
+    width: 100%;
+    padding: 14px 0;
+    background: linear-gradient(135deg, #74ebd5, #acb6e5);
+    color: #2c3e50;
+    font-weight: bold;
     border: none;
     border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+}
+
+/* Form background div */
+div {
+    background: transparent;
+    padding: 0;
+    border: none;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    main {
+        padding: 30px 20px;
+    }
 }
